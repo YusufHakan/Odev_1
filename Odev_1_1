@@ -1,0 +1,109 @@
+#include <stdio.h>
+#include <conio.h>
+void main()
+{
+	int KullaniciNO=251;                                       // Onceden bir kullanıcı no ve sifre belirliyoruz ki kullanıcı no sorgulaması yapabilelim. 
+	int KullaniciNogirilen;
+	int sifre, b, HesapNumarasi, i, SifreGirilen, bakiye, a, HesapNumarasigirilen, c; 
+	sifre = 12345; bakiye = 65400; HesapNumarasi = 22222;
+	printf("Lutfen Kullanici numaranizi giriniz: ");
+	scanf_s("%d", &KullaniciNogirilen);
+	if ( KullaniciNO==KullaniciNogirilen)                     // if else yapısı kullanarak kullanıcı no sorgulama ve sifre sorgulama yapıyoruz.
+	{
+		printf("<====Hosgeldiniz====>\n");
+		printf("%d", KullaniciNO);
+		printf("\n\n");
+		printf("Lutfen sifrenizi giriniz: ");
+		scanf_s("%d", &SifreGirilen);
+		if (SifreGirilen == sifre)
+		{
+			printf("Sifre dogru.");
+			printf("\n\n");
+			printf("MENU\n");                       // Kullanıcı no ve sifre sorgulamasını gectıkten sonra menu bolumunu ekrana yazdırıyoruz.
+			printf("==============\n\n");
+			printf("1-PARA CEKME\n");
+			printf("2-PARA YATIRMA\n");
+			printf("3-BASKA BIR HESABA PARA AKTARMA\n");
+			printf("4-BAKIYE SORGULAMA\n");
+			printf("5-CIKIS\n");
+			printf("\n");
+			printf("Lutfen Tercihinizi Giriniz 1/2/3/4/5: ");
+			scanf_s("%d", &i);                      // Kullanıcının menuden sectigi islemi gerceklestirmek icin scanf ile tercihini alıyoruz.
+			switch(i)                               // Kullanıcının switch-case ile menude sectigi herhangi bir islemi yapmasını saglıyoruz. 
+			{
+			case  1: 
+				printf("1-Para Cekme\n");
+				printf("Lutfen bir miktar giriniz: ");
+				scanf_s("%d", &b);
+				if (b > bakiye) 
+				{ 
+					printf("Yetersiz Bakiye..\a");}     // Kullanıcı hesabında bulunan miktardan daha fazla miktarda para cekemez bu yuzden bu uyarıyı alır.
+				else
+				{
+					bakiye=bakiye-b;
+					printf("Lutfen Paranizi Aliniz.\n");
+					printf("Kalan bakiyeniz===>");
+					printf("%d\n", bakiye);
+				}
+				break;
+			case  2:
+				printf("2-Para Yatirma\n");
+				printf("Lutfen bir miktar giriniz: ");
+				scanf_s("%d", &a);
+				bakiye=bakiye+a;
+				printf("\n");
+				printf("Paraniz basariyla yatirildi.\n");
+				printf("Bakiyeniz===>");
+				printf("%d", bakiye);
+				break;
+			case  3:
+				printf("3-Baska bir hesaba para aktarma\n");            // Programda onceden tanımladıgımız bir hesap numarası olmalı ki rastgele bir hesaba yanlış para aktarımı yapılmasın.
+				printf("Lutfen bir hesap numarasi giriniz: ");
+				scanf_s("%d", &HesapNumarasigirilen);
+				if (HesapNumarasi==HesapNumarasigirilen)
+				{
+					printf("Girdiginiz hesap numarasi dogru.\n");
+					printf("Lutfen bir miktar giriniz: ");
+					scanf_s("%d", &c);
+					if (c>bakiye)
+					{
+						printf("Yapma dostum o kadar paran yok... \a\a\a\a");}   // Kullanıcı kendi bakiyesinden fazla para gonderemiyecegi icin uyarı alır.
+					else
+					{
+						bakiye=bakiye-c;
+						printf("Islem basarili.\n");
+						printf("Kalan bakiyeniz===>");
+						printf("%d", bakiye);
+					}
+				}
+				else
+				{
+					printf("Girdiginiz hesap numarasi yanlis\a\a\a\a\a\a");
+				}
+				break;
+			case  4:
+				printf("4-Bakiye sorgulama.\n");
+				printf("Bakiyeniz====>");
+				printf("%d", bakiye);
+				break;
+			case 5:
+					printf("5-Cikis.\n");
+					printf("Guvenli sekilde cikisiniz yapilmistir.");
+					break;
+					
+			default:
+				printf("1/2/3/4/5 disinda bir tercih girdiniz.");
+				break;
+			}
+		}
+		else
+		{
+			printf("Girdiginiz sifre yanlis. \a");
+		}
+		}
+	else 
+	{
+		printf("Girdiginiz kullanici numarasi yanlis. \a");
+	}
+	_getch();
+}
