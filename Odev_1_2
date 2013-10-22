@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <conio.h>
+void main()
+{	int a, yuzluk, onluk, birlik, binlik;
+    printf("Lutfen dort basamakli bir sayi giriniz. : ");
+	scanf_s("%d", &a);
+	printf("Girdiginiz sayi ===> %d", a);
+	printf("\n\n");
+	if (a!=0, a<10000)
+	{
+    binlik = a/1000 ;            // Girilen sayının binler basamagını bulmak için sayıyı 1000'e bölüyoruz.
+	yuzluk = (a%1000)/100;       // Girilen sayının yüzler basamagını bulmak icin sayının 1000'e bölümünden kalanı 100'e bölüyoruz.
+	onluk = (a%100)/10;          // Girilen sayının onlar basamagını bulmak icin sayının 100'e bölümünden kalanı 10'a bölüyoruz.
+	birlik = (a%10);             // Girilen sayının birler basamagını bulmak icin sayının 10'a bölümünden kalanını alıyoruz.
+	printf("Binler basamagi ==> ");
+	printf ("%d", binlik);
+	printf("\n");
+	printf("Yuzler basamagi ==> ");
+	printf("%d", yuzluk);
+	printf("\n");
+	printf("Onlar  basamagi ==> ");
+	printf("%d", onluk);
+	printf("\n");
+	printf("Birler basamagi ==> ");
+	printf("%d", birlik);
+	}
+	 else
+	 {
+	   printf("Girdiginiz sayi dort basamakli degildir. \a\a\a");
+	 }
+	_getch();
+}
